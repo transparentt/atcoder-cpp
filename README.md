@@ -4,8 +4,7 @@ In the problem directory,
 
 1. g++-13 -std=c++20 a.cpp
 2. oj t -d ./tests/
-3. oj submit https://atcoder.jp/contests/a
-   bs/tasks/abc081_b a.cpp
+3. oj submit https://atcoder.jp/contests/abs/tasks/abc081_b a.cpp (example)
 
 #### Configuration
 
