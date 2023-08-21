@@ -29,15 +29,15 @@ int main()
     vector<vector<int>> arr_xy(1500 + 1, vector<int>(1500 + 1, 0));
     for (int i = 1; i < n + 1; i++)
     {
-        arr_xy.at(x.at(i)).at(y.at(i)) += 1;
+        arr_xy.at(y.at(i)).at(x.at(i)) += 1;
     }
 
     vector<vector<int>> arr_acc(1500 + 1, vector<int>(1500 + 1, 0));
-    for (int x = 1; x < 1500 + 1; x++)
+    for (int y = 1; y < 1500 + 1; y++)
     {
-        for (int y = 1; y < 1500 + 1; y++)
+        for (int x = 1; x < 1500 + 1; x++)
         {
-            arr_acc.at(x).at(y) = arr_acc.at(x).at(y - 1) + arr_xy.at(x).at(y);
+            arr_acc.at(y).at(x) = arr_acc.at(y).at(x - 1) + arr_xy.at(y).at(x);
         }
     }
 
@@ -45,7 +45,7 @@ int main()
     {
         for (int y = 1; y < 1500 + 1; y++)
         {
-            arr_acc.at(x).at(y) = arr_acc.at(x - 1).at(y) + arr_acc.at(x).at(y);
+            arr_acc.at(y).at(x) = arr_acc.at(y - 1).at(x) + arr_acc.at(y).at(x);
         }
     }
 
@@ -58,6 +58,6 @@ int main()
 
         // cout << a_i << b_i << c_i << d_i << endl;
 
-        cout << arr_acc.at(c_i).at(d_i) + arr_acc.at(a_i - 1).at(b_i - 1) - arr_acc.at(a_i - 1).at(d_i) - arr_acc.at(c_i).at(b_i - 1) << endl;
+        cout << arr_acc.at(d_i).at(c_i) + arr_acc.at(b_i - 1).at(a_i - 1) - arr_acc.at(d_i).at(a_i - 1) - arr_acc.at(b_i - 1).at(c_i) << endl;
     }
 }
